@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Project</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/d4340a91c4.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: poppins, sans-serif;
+        }
+
+        body{
+            display: block;
+            flex-direction: column;
+            display: flex;
+            text-align: center;
+            align-items: center;
+                    
+        }
+
+        .top-bar{
+            width: 80%;
+            height: 4rem;
+            background-color: #eee;
+            margin-bottom: 20px;
+            display: flex;
+            padding: 0px 20px;
+            align-items: center;
+            justify-content: space-between;
+           }
+
+           .fa-solid{
+            color: red;
+            margin: 10px;
+           }
+
+           .header{
+            width: 80%;
+            height: 200px;
+            background-color: red;
+            margin-bottom: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+           }
+
+           .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+           }
+
+           .navbar p{
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+           }
+
+           .navbar ul{
+            display: flex;
+            list-style: none;
+           }
+
+           .navbar ul li a{
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            padding: 7px 15px;
+           }
+
+           .navbar ul li a:hover{
+            background-color: white;
+            color: red;
+            border-radius: 3px;
+           }
+
+           .navbar-b{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+           }
+
+           .dropdown{
+            width: 130px;
+            text-align: center;
+            background-color: white;
+            border-radius: 3px;
+           }
+
+           select{
+            outline: none;
+            border: none;
+            background: none;
+            padding: 7px 10px 7px 0px;
+            color: red;
+            font-size: 18px;
+            cursor: pointer;
+           }
+
+           select:hover{
+            color: #333;
+           }
+
+           .search{
+            width: 500px;
+            background-color: white;
+            height: 45px;
+            border-radius: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+           }
+
+        .search input{
+            width: 440px;
+            border: none;
+            outline: none;
+            height: 40px;
+        }
+
+        .cart{
+            display: flex;
+            background-color: white;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7px 10px;
+            border-radius: 3px;
+            width: 80px;
+            font-size: 18px;
+            color: white;
+        }
+
+        .cart p{
+            height: 22px;
+            width: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: red;  
+        }
+
+        .container{
+            width: 80%;
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        #root{
+            width: auto;
+            display: grid;
+            grid-template-columns:50% 50% ;
+            grid-gap: 20px;
+        }
+
+        .sidebar{
+            width: 70%;
+            border-radius: 5px;
+            background-color: #eee;
+            margin-left: 20px;
+            padding: 20px;
+            text-align: center;
+            
+           
+        }
+
+        .head{
+          background-color: red;
+          border-radius: 3px;
+          height: 40px;
+          padding: 10px;
+          margin-bottom: 20px;
+          color: white;
+          display: flex;
+          align-items: center;
+          }
+
+        .foot{
+          display: flex;
+          justify-content: space-between;
+          margin: 20px 0px;
+          padding: 10px 0px;
+          border-top: 1px solid #333;
+        }
+
+        .cart-item{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px;
+          background-color: white;
+          border-bottom: 1px solid #aaa;
+          border-radius: 3px;
+          margin: 10px 10px;
+        }
+
+        .row-img{
+          width: 50px;
+          height: 50px;
+          border: 1px solid red;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .rowimg{
+          max-width: 43px;
+          max-height: 43px;
+          border-radius: 50%;
+        }
+
+        .fa-trash:hover{
+          cursor: pointer;
+          color: #333;
+        }
+
+        .box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+        
+        .img-box{
+            width: 100%;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .left{
+            width: 50%;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin-left: 60px;
+        }
+
+        img{
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            object-position: center;
+            float: left;
+            display: grid;
+            border:1px solid black;
+            width: 100%;
+        }
+
+        button{
+           border: none;
+           padding: 15px 32px;
+           float: left;
+           text-align: center;
+           text-decoration: none;
+           display: block;
+           font-size: 16px;
+           border-radius: 15px;
+           background-color: red;
+           color: white;
+        }
+
+        button:hover{
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar" >
+        <p><i class="fa-solid fa-envelope"></i>Mustaq@007slm@gmail.com</p>
+        <p><i class="fa-solid fa-phone"></i>9500844357</p>
+    </div>
+    <div class="header">
+         <div class="navbar" >
+            <p>Logo</p>
+            <ul>
+                <li><a href="https://www.amazon.in/s?k=home+shopping&adgrpid=1322714095539417&hvadid=82669889840114&hvbmt=be&hvdev=c&hvlocphy=149120&hvnetw=o&hvqmt=e&hvtargid=kwd-82670512424603%3Aloc-90&hydadcr=565_2281197&tag=msndeskstdin-21&ref=pd_sl_8kxwygttal_e">Home</a></li>
+                <li><a href="https://www.amazon.in/s?k=store+shopping&crid=3I9POI26LN1L6&sprefix=store+shopping%2Caps%2C338&ref=nb_sb_noss_2">Store</a></li>
+                <li><a href="https://www.amazon.in/s?k=about+shopping&crid=2ZWY0LL2OBNYV&sprefix=about+shopping%2Caps%2C262&ref=nb_sb_noss_2">About</a></li>
+                <li><a href="https://www.amazon.in/s?k=amazon+customer+care+number+toll+free&adgrpid=1316117028245779&hvadid=82257573755730&hvbmt=bb&hvdev=c&hvlocphy=157981&hvnetw=o&hvqmt=b&hvtargid=kwd-82258194932312%3Aloc-90&hydadcr=27850_1952698&tag=msndeskstdin-21&ref=pd_sl_3awvvjmlpx_b">contact </a></li>
+            </ul>
+         </div>
+         <div class="navbar-b">
+          <div class="dropdown">
+            
+           <select name="">
+            <option class="dropdown-item" value="1">Catagories</option>
+            <option class="dropdown-item"value="2">New</option>
+            <option class="dropdown-item"value="3">Important</option>
+            <option class="dropdown-item"value="4">Local</option>
+        </select>
+           </div>
+           <div class="search" >
+            <input type="search" placeholder="search"> 
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="cart" >
+        <i class="fa-solid fa-cart-shopping"></i> 
+        <p id="num">0<p>
+         </div>
+         </div>
+        </div>
+    </div>
+    <!-- Carousel -->
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    </div>
+  
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://tse3.mm.bing.net/th?id=OIP.Wnr8u4lxBayPV9yLNdeoQgHaE8&pid=ImgDet&rs=1" alt="Los Angeles" class="d-block w-100" width="50%">
+      </div>
+      <div class="carousel-item">
+        <img src="https://centresdirect.co.uk/images/store/header/Enfield.jpg" alt="Chicago" class="d-block w-100" width="50%">
+      </div>
+      <div class="carousel-item">
+        <img src="https://th.bing.com/th/id/R.d80615f95e12374da9d854f39c082aa7?rik=3LhMPbvOw3yddw&riu=http%3a%2f%2fwww.aspekt7.com%2faspekt7%2fwp-content%2fuploads%2f2013%2f07%2f51401.jpg&ehk=JCUtcXZuFwmZpZQPOdhMOWhWIqTRAVWAudV9JhrntZ4%3d&risl=&pid=ImgRaw&r=0" alt="New York" class="d-block w-100" width="50%">
+      </div>
+    </div>
+
+    <div class="carousel-item">
+        <img src="https://cdn0.vox-cdn.com/thumbor/YzZpku6KOMHRag6mDmsFQtgsHLo=/0x0:2039x1359/1200x800/filters:focal(0x0:2039x1359)/cdn0.vox-cdn.com/uploads/chorus_image/image/32409727/sonyexperience.0.jpg" alt="New York" class="d-block w-100" width="50%">
+      </div>
+    </div>
+  
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <div class="carousel-item">
+    <img src="https://tse2.mm.bing.net/th?id=OIP.nUmuHiY3vNlsVAubSyt9HAHaEL&pid=ImgDet&rs=1.jpg" alt="Los Angeles" width="50%">
+    <div class="carousel-caption">
+      <h3>Los Angeles</h3>
+      <p>We had such a great time in LA!</p>
+    </div>
+  </div>
+    <div class="container" >
+        <div id="root">  
+          
+          <img id="img1"  src="https://th.bing.com/th/id/OIP.Ta-QeKAtAQujBt5tJ8qzAQHaHa?pid=ImgDet&rs=1"  class="img-thumbnail" width="200%"> 
+          
+           <img  src="https://media.musiciansfriend.com/is/image/MMGS7/NT1-Condenser-Microphone-Package/J03450000000000-00-1600x1600.jpg" class="img-thumbnail"> <br>
+           <span id="hu2"> $1,200</span>
+
+           <span id="hu">$3,400</span>
+
+          <br>
+          <button type="button" id="button1" class="btn btn-danger"  data-bs-toggle="tooltip" title="Hii!"onclick="cart1()">Add to Cart </button> 
+          <button type="button" id="button" class="btn btn-danger" data-bs-toggle="tooltip" title="click here!"onclick="cart2()"> Add to Cart </button>
+          <img  src="https://th.bing.com/th/id/R.b41d22d5798e51152a656c79bf4a267b?rik=pU633CBzzHRIpQ&riu=http%3a%2f%2ftopportalreview.com%2fwp-content%2fuploads%2f2015%2f11%2fScinex-Unisex-SW20-16GB-Bluetooth-Smart-Watch-GSM-Phone-Gold-Black.jpg&ehk=xkGXFzbRNu8wWTvZSetWyBMKsRuY%2byoscp3mP%2b9Uoww%3d&risl=&pid=ImgRaw&r=0" class="img-thumbnail">
+          
+                    <img src="https://th.bing.com/th/id/R.a9c34fb8f2688cb6e2d73085f9310aeb?rik=nboa4bDgfjsVgA&riu=http%3a%2f%2fvaluenomad.com%2fwp-content%2fuploads%2f2018%2f01%2fhp-pavilion-15-cc110na.jpg&ehk=bVzaOB7yQdbw4OZ%2f%2fTtnIgWtp3anoY1SdbNpxNXa2XY%3d&risl=&pid=ImgRaw&r=0"class="img-thumbnail" >
+                    <span id="hu3">$6,800</span>
+
+                    <span id="hu4">$2,600</span>
+
+          <button type="button" id="button" class="btn btn-danger" data-bs-toggle="tooltip" title="clk action!"onclick="cart3()" >Add to Cart</button>
+          <button type="button" id="button" class="btn btn-danger" data-bs-toggle="tooltip" title="nice!"onclick="cart4()">Add to Cart</button>
+          <img src="https://www.bhphotovideo.com/images/images2500x2500/nikon_26499b_coolpix_p900_digital_camera_1280868.jpg" class="img-thumbnail">
+           <img src="https://images-na.ssl-images-amazon.com/images/I/51L%2B1Yphx5L._SL1001_.jpg" class="img-thumbnail">
+           <span id="hu5">$3,800</span>
+
+           <span id="hu6">$7,900</span>
+
+          <button type="button" id="button" class="btn btn-danger" data-bs-toggle="tooltip" title="hero!"onclick="cart5()">Add to Cart</button>
+          <button type="button" id="button" class="btn btn-danger" data-bs-toggle="tooltip" title="fine!"onclick="cart6()">Add to Cart</button>
+          <img src="https://th.bing.com/th/id/OIP.ZuWildhneEI6UcOQDHWXwgHaGS?pid=ImgDet&rs=1"class="img-thumbnail">
+          <img src="https://www.phonefinity.net/wp-content/uploads/airpods-pro-1.jpg"class="img-thumbnail">
+          <span id="hu5">$6,900</span>
+
+          <span id="hu7">$7,900</span>
+
+          <button type="button" id="button" class="btn btn-danger" data-bs-toggle="tooltip" title="whats up!"onclick="cart7()">Add to Cart</button>
+          <button type="button" id="button"class="btn btn-danger" data-bs-toggle="tooltip" title="tag!"onclick="cart8()">Add to Cart</button>
+          
+        </div>
+        <div class="sidebar">Sidebar
+          <div class="head"><p><b> My Cart</b></p></div>
+        
+
+          <div id="cartitem">your cart is empty</div>
+          <div class="foot">
+            <h3>Total</h3>
+            <h2 id="total">$ 0.00</h2>
+            <p id="nu">0</p>
+            
+            
+          </div>
+          </div> 
+    </div>
+      
+    <script type="text/javascript">
+      let total=0;
+        let a=0;
+        let b=document.getElementById("https://th.bing.com/th/id/R.b41d22d5798e51152a656c79bf4a267b?rik=pU633CBzzHRIpQ&riu=http%3a%2f%2ftopportalreview.com%2fwp-content%2fuploads%2f2015%2f11%2fScinex-Unisex-SW20-16GB-Bluetooth-Smart-Watch-GSM-Phone-Gold-Black.jpg&ehk=xkGXFzbRNu8wWTvZSetWyBMKsRuY%2byoscp3mP%2b9Uoww%3d&risl=&pid=ImgRaw&r=0").value;
+        let c=document.getElementById("button").value;
+
+        
+
+        function cart1(){
+
+                  
+          a++;
+            document.getElementById("num").innerHTML=a;
+            document.getElementById("nu").innerHTML=a;
+            let t=3400;
+            total+=t;
+            document.getElementById("total").innerHTML=total;
+        
+          
+      
+    }
+
+  
+     
+         function cart2(){
+
+          a++;
+          document.getElementById("num").innerHTML=a;
+          document.getElementById("nu").innerHTML=a;
+          let s=1200;
+          total+=s;
+          document.getElementById("total").innerHTML=total;
+
+         
+         }
+
+         function cart3(){
+
+         a++;
+         document.getElementById("num").innerHTML=a;
+         document.getElementById("nu").innerHTML=a;
+         let f=6800;
+         total+=f;
+         document.getElementById("total").innerHTML=total;
+
+         var img = document.createElement("img");
+        img.src = "https://media.musiciansfriend.com/is/image/MMGS7/NT1-Condenser-Microphone-Package/J03450000000000-00-1600x1600.jpg ";
+        img.setAttribute.height = "100%";
+        img.setAttribute.width = "100%";
+
+        var class_name = "gif";
+        img.setAttribute("class", class_name);
+
+        document.getElementById("nu").appendChild(img).style.width = "100%";
+
+         }
+
+         
+         function cart4(){
+
+         a++;
+         
+         document.getElementById("num").innerHTML=a;
+         document.getElementById("nu").innerHTML=a;
+         let g=2600;
+         total+=g;
+         document.getElementById("total").innerHTML=total;
+
+      
+
+         }
+
+         function cart5(){
+
+         a++;
+         document.getElementById("num").innerHTML=a;
+         document.getElementById("nu").innerHTML=a;
+         let c=3800;
+         total+=c;
+         document.getElementById("total").innerHTML=total;
+
+       
+         }
+
+         function cart6(){
+
+         a++;
+         document.getElementById("num").innerHTML=a;
+         document.getElementById("nu").innerHTML=a;
+         let j=7900;
+         total+=j;
+         document.getElementById("total").innerHTML=total;
+
+
+         }
+         
+
+         function cart7(){
+
+          a++;
+          document.getElementById("num").innerHTML=a;
+          document.getElementById("num").innerHTML=a;
+          let k=6900;
+          total+=k;
+          document.getElementById("total").innerHTML=total;
+
+          }
+
+          function cart8(){
+
+          a++;
+          document.getElementById("num").innerHTML=a;
+          document.getElementById("nu").innerHTML=a;
+          let z=7900;
+          total+=z;
+          document.getElementById("total").innerHTML=total;
+
+     
+
+          }
+       
+                  
+    </script>
+</body>
+</html>
+
